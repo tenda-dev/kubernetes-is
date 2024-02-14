@@ -18,7 +18,6 @@ metadata:
   name: {{ template "is-pattern-1.resource.prefix" . }}-identity-server-conf
   namespace : {{ .Release.Namespace }}
   {{ if .Values.wso2.deployment.wso2is.config }}
-
 data:
   {{- range $index, $content := .Values.wso2.deployment.wso2is.config }}
   {{ $index }}: |-
