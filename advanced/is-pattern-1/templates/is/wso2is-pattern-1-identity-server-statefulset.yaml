@@ -37,7 +37,7 @@ spec:
         monitoring: {{ .Values.wso2.monitoring.prometheus.jmxJobName }}
     spec:
       initContainers:
-        {{ if .Values.wso2.deployment.dependencies.mysql }}
+        {{ if .Values.wso2.deployment.dependencies.mysql.enabled }}
         - name: init-is-db
           image: busybox:1.31
           command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z wso2is-mysql-db-service 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL Server has started";']
